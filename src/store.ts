@@ -15,12 +15,14 @@ export enum Action {
 }
 
 interface State {
+    selectedProduct: null | Product;
     products: Product[];
 }
 
 export const store = createStore<State>({
     state () {
       return {
+        selectedProduct: null,
         products: []
       }
     },
@@ -35,7 +37,7 @@ export const store = createStore<State>({
             state.products.splice(index, 1);
         },
         [Mutation.SELECTED_PRODUCT](state, product) {
-            state.products = product
+            state.selectedProduct = product
         }
     },
     actions: {
