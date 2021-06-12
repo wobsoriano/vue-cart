@@ -14,7 +14,7 @@ export const getAllProducts = async (): Promise<Product[]> => {
     return resp.json();
 }
 
-export const getOneProduct = async (id: string): Promise<Product> => {
+export const getOneProduct = async (id: number): Promise<Product> => {
     const resp = await fetch(`${fakeStoreUrl}/products/${id}`);
     return resp.json();
 }

@@ -2,52 +2,65 @@ import { InjectionKey } from 'vue';
 import { createStore, useStore as baseUseStore, Store } from 'vuex';
 import { getAllProducts, getOneProduct, Product } from './api';
 
-export enum Mutation {
-    SET_PRODUCTS = 'SET_PRODUCTS',
-    ADD_PRODUCT = 'ADD_PRODUCT',
-    REMOVE_PRODUCT = 'REMOVE_PRODUCT',
-    SELECTED_PRODUCT = 'SELECTED_PRODUCT'
-}
-
-export enum Action {
-    GET_ALL_PRODUCTS = 'getAllProducts',
-    GET_ONE_PRODUCT = 'getOneProduct',
+interface CartItem {
+    productId: number;
+    quantity: number;
 }
 
 interface State {
     selectedProduct: null | Product;
     products: Product[];
+    cart: CartItem[];
 }
 
 export const store = createStore<State>({
     state () {
       return {
         selectedProduct: null,
-        products: []
+        products: [],
+        cart: []
       }
     },
+    getters: {
+        getTotalAmount(state) {
+            let sum = 0;
+            for (let x = 0; x < state.cart.length; x++) {
+                const product = state.products.find(i => i.id === state.cart[x].productId);
+                sum += (product?.price! * state.cart[x].quantity);
+            }
+            return sum;
+        }
+    },
     mutations: {
-        [Mutation.SET_PRODUCTS](state, products) {
+        SET_PRODUCTS(state, products) {
             state.products = products;
         },
-        [Mutation.ADD_PRODUCT](state, product) {
-            state.products = product;
+        ADD_PRODUCT_TO_CART(state, productId: number) {
+            const index = state.cart.findIndex(i => i.productId === productId);
+            if (index === -1) {
+                state.cart.push({
+                    productId,
+                    quantity: 1
+                });
+            } else {
+                state.cart[index].quantity++;
+            }
         },
-        [Mutation.REMOVE_PRODUCT](state, index) {
-            state.products.splice(index, 1);
+        REMOVE_PRODUCT_FROM_CART(state, index) {
+            state.cart.splice(index, 1);
         },
-        [Mutation.SELECTED_PRODUCT](state, product) {
-            state.selectedProduct = product
+        SELECTED_PRODUCT(state, productId) {
+            state.selectedProduct = productId
         }
     },
     actions: {
         async getAllProducts({ commit }) {
             const products = await getAllProducts();
-            commit(Mutation.SET_PRODUCTS, products);
+            commit('SET_PRODUCTS', products);
         },
-        async getOneProduct({ commit }, id) {
+        async getOneProduct({ commit }, id: number) {
             const product = await getOneProduct(id);
-            commit(Mutation.SELECTED_PRODUCT, product);
+            commit('SELECTED_PRODUCT', product);
         }
     }
 });
