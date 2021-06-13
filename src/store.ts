@@ -8,7 +8,6 @@ interface CartItem {
 }
 
 interface State {
-    selectedProduct: null | Product;
     products: Product[];
     cart: CartItem[];
 }
@@ -16,7 +15,6 @@ interface State {
 export const store = createStore<State>({
     state () {
       return {
-        selectedProduct: null,
         products: [],
         cart: []
       }
@@ -48,9 +46,6 @@ export const store = createStore<State>({
         },
         REMOVE_PRODUCT_FROM_CART(state, index) {
             state.cart.splice(index, 1);
-        },
-        SELECTED_PRODUCT(state, productId) {
-            state.selectedProduct = productId
         }
     },
     actions: {

@@ -10,7 +10,7 @@
             <n-button @click="addToCart" style="width: 100%;" size="large" type="primary" icon-placement="right">
             <template #icon>
                 <n-icon>
-                <cart-icon />
+                    <cart-icon />
                 </n-icon>
             </template>
             Add to cart
