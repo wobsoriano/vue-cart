@@ -8,6 +8,7 @@
         </div>
         <div v-else class="space-y-4">
             <CartCard v-for="(cartProduct, index) in formattedCart" :key="index" :cartProduct="cartProduct" />
+            <div class="text-right text-2xl md:text-4xl">Total: {{ toCurrency(cartStore.total) }}</div>
         </div>
     </div>
 </template>
@@ -18,6 +19,7 @@ import { useCartStore } from '../store/cart'
 import { useProductStore } from '../store/products'
 import CartCard from '../components/CartCard.vue'
 import CartCardSkeleton from '../components/CartCardSkeleton.vue'
+import { toCurrency } from '../shared/utils'
 
 const cartStore = useCartStore()
 const productStore = useProductStore()
