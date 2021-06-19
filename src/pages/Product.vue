@@ -1,7 +1,7 @@
 <template>
   <div class="p-4 max-w-4xl mx-auto">
       <div v-if="!productStore.loaded">
-          <h1 class="text-xl">Loading products...</h1>
+        <CartCardSkeleton />
       </div>
       <div class="card lg:card-side bordered" v-else-if="product">
             <figure class="px-10 pt-10">
@@ -28,11 +28,14 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+
 import { useCartStore } from "../store/cart";
 import { useProductStore } from '../store/products'
 import type { Product } from '../store/products'
 import { toCurrency } from '../shared/utils'
-import { useRoute } from 'vue-router';
+
+import CartCardSkeleton from '../components/CartCardSkeleton.vue'
 
 const cartStore = useCartStore()
 const productStore = useProductStore()
