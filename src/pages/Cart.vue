@@ -1,7 +1,7 @@
 <template>
     <div class="p-4 max-w-4xl mx-auto">
-        <div v-if="!productStore.loaded">
-            <h1 class="text-xl">Loading products...</h1>
+        <div v-if="!productStore.loaded" class="space-y-4">
+            <CartCardSkeleton v-for="n in 15" :key="n" />
         </div>
         <div v-else-if="!formattedCart.length">
             <h1 class="text-xl">Cart is empty.</h1>
@@ -13,10 +13,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from '@vue/runtime-core'
-import CartCard from '../components/CartCard.vue'
+import { computed } from 'vue'
 import { useCartStore } from '../store/cart'
 import { useProductStore } from '../store/products'
+import CartCard from '../components/CartCard.vue'
+import CartCardSkeleton from '../components/CartCardSkeleton.vue'
 
 const cartStore = useCartStore()
 const productStore = useProductStore()

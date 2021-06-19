@@ -1,10 +1,10 @@
 <template>
-    <div class="card lg:card-side bordered">
-        <figure class="px-10 pt-10">
+    <div class="card md:card-side bordered">
+        <figure class="p-8">
         <img
             :src="cartProduct.image"
             alt="Card Image"
-            class="object-contain w-full h-64"
+            class="object-contain w-full h-48"
         />
         </figure> 
         <div class="card-body">
