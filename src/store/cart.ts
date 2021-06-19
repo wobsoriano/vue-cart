@@ -7,10 +7,8 @@ export interface Purchase {
     quantity: number
 }
 
-type Contents = Record<string, Purchase>
-
 interface CartState {
-    contents: Contents
+    contents: Record<string, Purchase>
 }
 
 export interface CartPreview {
