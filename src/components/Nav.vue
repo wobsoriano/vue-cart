@@ -23,22 +23,15 @@
         </div>
         </div> 
         <div class="flex-1 lg:flex-none">
-            <div class="form-control">
-            <input type="text" placeholder="Search..." class="input input-ghost" />
-            </div>
-        </div> 
-        <!-- <div class="flex-none">
-            <button class="btn btn-ghost btn-sm rounded-btn" @click="$router.push('/cart')">
-                Cart
-                <div class="badge ml-2 badge-outline" v-text="count"></div>
-            </button>
-        </div>  -->
+            <Search />
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue"
 import { useCartStore } from "../store/cart"
+import Search from './Search.vue'
 
 const cartStore = useCartStore()
 
