@@ -12,7 +12,10 @@
             <router-link to="/">Home</router-link>
           </li> 
           <li>
-            <router-link to="/">About</router-link>
+            <router-link to="/cart">
+              Cart
+              <div class="badge ml-2 badge-outline" v-text="count"></div>
+            </router-link>
           </li>
         </ul>
     </div>
@@ -20,13 +23,17 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { computed, onMounted } from 'vue';
 import Nav from './components/Nav.vue'
 import { usePersistCart } from './shared/hooks';
+import { useCartStore } from './store/cart';
 import { useProductStore } from './store/products';
 
 const productStore = useProductStore()
+const cartStore = useCartStore()
 
 productStore.fetchAll()
 usePersistCart()
+
+const count = computed(() => cartStore.count)
 </script>

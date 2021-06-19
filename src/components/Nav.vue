@@ -14,24 +14,25 @@
         <div class="flex-1 px-2 mx-2">
         <div class="items-stretch hidden lg:flex">
             <router-link class="btn btn-ghost btn-sm rounded-btn" to="/">
-            Home
+                Home
             </router-link> 
             <router-link class="btn btn-ghost btn-sm rounded-btn" to="/cart">
-            About
+                Cart
+                <div class="badge ml-2 badge-outline" v-text="count"></div>
             </router-link> 
         </div>
         </div> 
-        <!-- <div class="flex-1 lg:flex-none">
+        <div class="flex-1 lg:flex-none">
             <div class="form-control">
             <input type="text" placeholder="Search..." class="input input-ghost" />
             </div>
-        </div>  -->
-        <div class="flex-none">
+        </div> 
+        <!-- <div class="flex-none">
             <button class="btn btn-ghost btn-sm rounded-btn" @click="$router.push('/cart')">
                 Cart
                 <div class="badge ml-2 badge-outline" v-text="count"></div>
             </button>
-        </div> 
+        </div>  -->
     </div>
 </template>
 
