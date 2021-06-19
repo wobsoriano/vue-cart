@@ -1,7 +1,11 @@
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import router from './routes'
 import App from './App.vue'
-import { key, store } from './store'
 
-const app = createApp(App);
-app.use(store, key);
-app.mount('#app');
+import './assets/styles/tailwind.css'
+
+const app = createApp(App)
+app.use(createPinia())
+app.use(router)
+app.mount('#app')

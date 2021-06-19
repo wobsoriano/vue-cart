@@ -1,0 +1,35 @@
+<template>
+    <div class="card lg:card-side bordered">
+        <figure class="px-10 pt-10">
+        <img
+            :src="cartProduct.image"
+            alt="Card Image"
+            class="object-contain w-full h-64"
+        />
+        </figure> 
+        <div class="card-body">
+            <h2 class="card-title">{{ cartProduct.title }}</h2>
+            <p>{{ toCurrency(cartProduct.cost) }}</p>
+            <div class="card-actions">
+                <div class="btn-group">
+                    <button class="btn btn-primary" @click="cartStore.add(cartProduct.id)">+</button>
+                    <button class="btn btn-ghost no-animation">{{ cartProduct.quantity }}</button>
+                    <button class="btn btn-primary" @click="cartStore.remove(cartProduct.id)">-</button>
+                </div>
+            </div>
+        </div>
+    </div>   
+</template>
+
+<script setup lang="ts">
+import { defineProps } from 'vue';
+import { useCartStore } from '../store/cart';
+import type { CartPreview } from '../store/cart'
+import { toCurrency } from '../shared/utils'
+
+const cartStore = useCartStore()
+
+const props = defineProps<{
+    cartProduct: CartPreview
+}>();
+</script>

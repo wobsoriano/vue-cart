@@ -1,81 +1,32 @@
 <template>
-  <n-notification-provider>
-    <n-space vertical size="large" >
-      <n-layout :native-scrollbar="false">
-        <Header />
-        <n-layout-content class="container">
-          <n-grid cols="1 s:2 m:3 l:3 xl:4 2xl:4" responsive="screen" x-gap="12" y-gap="12">
-            <n-grid-item v-for="product in products" :key="product.id">
-              <Product :product="product" />
-            </n-grid-item>
-          </n-grid>
-        </n-layout-content>
-      </n-layout>
-    </n-space>
-  </n-notification-provider>
+  <div class="drawer">
+    <input id="drawer-input" type="checkbox" class="drawer-toggle" />
+    <div class="bg-base-100 text-base-content min-h-screen drawer-content">
+      <Nav />
+        <router-view></router-view>
+    </div>
+    <div class="drawer-side">
+        <label for="drawer-input" class="drawer-overlay"></label> 
+        <ul class="p-4 overflow-y-auto menu w-80 bg-base-100 text-base-content">
+          <li>
+            <router-link to="/">Home</router-link>
+          </li> 
+          <li>
+            <router-link to="/">About</router-link>
+          </li>
+        </ul>
+    </div>
+  </div>
 </template>
 
-<script lang="ts">
-import { computed, defineComponent } from 'vue';
-import {
-  NGrid,
-  NGridItem,
-  NSpace,
-  NLayout,
-  NLayoutHeader,
-  NLayoutContent,
-  NNotificationProvider
-} from 'naive-ui';
+<script setup>
+import { onMounted } from 'vue';
+import Nav from './components/Nav.vue'
+import { usePersistCart } from './shared/hooks';
+import { useProductStore } from './store/products';
 
-import Product from './components/Product.vue';
-import Header from './components/Header.vue';
-import { useStore } from './store';
+const productStore = useProductStore()
 
-export default defineComponent({
-  name: 'App',
-  components: {
-    NGrid,
-    NGridItem,
-    NSpace,
-    NLayout,
-    NLayoutHeader,
-    NLayoutContent,
-    NNotificationProvider,
-    Product,
-    Header
-  },
-  setup() {
-    const store = useStore();
-
-    const products = computed(() => store.state.products);
-    const totalAmount = computed(() => store.getters['getTotalAmount']);
-
-    store.dispatch('getAllProducts');
-
-    return {
-      products,
-      totalAmount
-    }
-  }
-})
+productStore.fetchAll()
+usePersistCart()
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  max-width: 1280px;
-  width: 90%;
-  padding-top: 24px;
-  padding-bottom: 24px;
-}
-@media only screen and (min-width: 601px) {
-  .container {
-    width: 85%;
-  }
-}
-@media only screen and (min-width: 993px) {
-  .container {
-    width: 70%;
-  }
-}
-</style>
