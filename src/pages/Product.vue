@@ -3,7 +3,7 @@
       <div v-if="!productStore.loaded">
           <h1 class="text-xl">Loading products...</h1>
       </div>
-      <div class="card lg:card-side bordered" v-else-if="product">
+      <div class="card lg:card-side" v-else-if="product">
             <figure class="px-10 pt-10">
                 <img
                     :src="product.image"

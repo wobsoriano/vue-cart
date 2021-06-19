@@ -8,7 +8,9 @@
         />
         </figure> 
         <div class="card-body">
-            <h2 class="card-title">{{ cartProduct.title }}</h2>
+            <h2 class="card-title">
+                <router-link class="link link-hover" :to="`/product/${cartProduct.id}`">{{ cartProduct.title }}</router-link>
+            </h2>
             <p>{{ toCurrency(cartProduct.cost) }}</p>
             <div class="card-actions">
                 <div class="btn-group">

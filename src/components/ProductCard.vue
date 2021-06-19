@@ -1,5 +1,5 @@
 <template>
-    <div class="card bordered">
+    <div class="card bordered ">
         <figure class="px-8 pt-10">
             <img
                 :src="product.image"
