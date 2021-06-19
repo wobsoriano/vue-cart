@@ -6,7 +6,7 @@
         <div v-else-if="!formattedCart.length">
             <h1 class="text-xl">Cart is empty.</h1>
         </div>
-        <div v-else class="grid gap-4 grid-cols-1">
+        <div v-else class="space-y-4">
             <CartCard v-for="(cartProduct, index) in formattedCart" :key="index" :cartProduct="cartProduct" />
         </div>
     </div>
