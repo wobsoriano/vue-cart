@@ -7,7 +7,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { computed } from '@vue/runtime-core'
+import { computed } from 'vue'
 import ProductCard from '../components/ProductCard.vue'
 import ProductCardSkeleton from '../components/ProductCardSkeleton.vue'
 import { useProductStore } from '../store/products'
