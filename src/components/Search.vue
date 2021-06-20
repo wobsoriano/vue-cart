@@ -16,9 +16,9 @@ import { computed, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useProductStore } from "../store/products";
 
-const input = ref('')
 const productStore = useProductStore()
 const router = useRouter()
+const input = ref('')
 
 const searchResults = computed(() => {
     if (!input.value || input.value.length < 2) return [];
