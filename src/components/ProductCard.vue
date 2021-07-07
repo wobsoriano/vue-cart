@@ -20,14 +20,13 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue';
 import { useCartStore } from '../store/cart';
 import type { Product } from '../store/products'
 import { toCurrency } from '../shared/utils'
 
 const cartStore = useCartStore()
 
-const props = defineProps<{
+defineProps<{
     product: Product
 }>();
 </script>
