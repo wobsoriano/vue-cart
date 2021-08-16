@@ -7,13 +7,13 @@
   },
   "dependencies": {
     "daisyui": "^1.3.11",
-    "pinia": "^2.0.0-beta.2",
-    "vue": "^3.1.3",
+    "pinia": "^2.0.0-rc.3",
+    "vue": "^3.2.0",
     "vue-router": "4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.2.3",
-    "@vue/compiler-sfc": "^3.1.3",
+    "@vue/compiler-sfc": "^3.2.0",
     "autoprefixer": "^10.2.6",
     "tailwindcss": "^2.2.0",
     "typescript": "^4.3.2",
