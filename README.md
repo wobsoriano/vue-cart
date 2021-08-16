@@ -19,7 +19,3 @@ $ npm run build
 # Vite preview
 $ npm run serve
 ```
-
-### `<script setup>`
-
-[`<script setup>`](https://github.com/vuejs/rfcs/pull/227) is a feature that is currently in RFC stage. To get proper IDE support for the syntax, use [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) instead of Vetur (and disable Vetur).
