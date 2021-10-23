@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { CART_STORAGE } from '../shared/hooks'
+import { CART_STORAGE } from '../composables/usePersistCart'
 import { useProductStore } from './products'
 
 export interface Purchase {

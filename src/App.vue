@@ -25,7 +25,7 @@
 <script setup lang="ts">
 import { computed, onMounted } from 'vue';
 import Nav from './components/Nav.vue'
-import { usePersistCart } from './shared/hooks';
+import { usePersistCart } from './composables/usePersistCart';
 import { useCartStore } from './store/cart';
 import { useProductStore } from './store/products';
 
