@@ -4,14 +4,14 @@ import Product from './pages/Product.vue'
 import Cart from './pages/Cart.vue'
 
 const routes = [
-    { path: '/', component: Home },
-    { path: '/product/:productId', component: Product },
-    { path: '/cart', component: Cart }
-];
+  { path: '/', component: Home },
+  { path: '/product/:productId', component: Product },
+  { path: '/cart', component: Cart },
+]
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes, 
+  history: createWebHistory(),
+  routes,
 })
 
 export default router
