@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useCartStore } from '../store/cart'
-import type { Product } from '../store/products'
-import { toCurrency } from '../shared/utils'
+import { useCartStore } from '@/store/cart'
+import type { Product } from '@/store/products'
+import { toCurrency } from '@/shared/utils'
 
 defineProps<{
   product: Product

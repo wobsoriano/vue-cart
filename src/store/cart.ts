@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
-import { CART_STORAGE } from '../composables/usePersistCart'
 import { useProductStore } from './products'
+import { CART_STORAGE } from '@/composables/usePersistCart'
 
 export interface Purchase {
   productId: number

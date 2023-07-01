@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { useProductStore } from '../store/products'
+import { useProductStore } from '@/store/products'
 
 const productStore = useProductStore()
 const router = useRouter()

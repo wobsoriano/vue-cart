@@ -2,12 +2,12 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
-import { useCartStore } from '../store/cart'
-import { useProductStore } from '../store/products'
-import type { Product } from '../store/products'
-import { toCurrency } from '../shared/utils'
+import { useCartStore } from '@/store/cart'
+import { useProductStore } from '@/store/products'
+import type { Product } from '@/store/products'
+import { toCurrency } from '@/shared/utils'
 
-import CartCardSkeleton from '../components/CartCardSkeleton.vue'
+import CartCardSkeleton from '@/components/CartCardSkeleton.vue'
 
 const cartStore = useCartStore()
 const productStore = useProductStore()

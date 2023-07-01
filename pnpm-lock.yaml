@@ -22,6 +22,9 @@ devDependencies:
   '@antfu/eslint-config':
     specifier: ^0.39.6
     version: 0.39.6(eslint@8.44.0)(typescript@5.1.6)
+  '@types/node':
+    specifier: ^20.3.3
+    version: 20.3.3
   '@vitejs/plugin-vue':
     specifier: ^4.2.3
     version: 4.2.3(vite@4.3.9)(vue@3.3.4)
@@ -42,7 +45,7 @@ devDependencies:
     version: 5.1.6
   vite:
     specifier: ^4.3.9
-    version: 4.3.9
+    version: 4.3.9(@types/node@20.3.3)
   vue-tsc:
     specifier: ^1.8.3
     version: 1.8.3(typescript@5.1.6)
@@ -509,6 +512,10 @@ packages:
       '@types/unist': 2.0.6
     dev: true
 
+  /@types/node@20.3.3:
+    resolution: {integrity: sha512-wheIYdr4NYML61AjC8MKj/2jrR/kDQri/CIpVoZwldwhnIrD/j9jIU5bJ8yBKuB2VhpFV7Ab6G2XkBjv9r9Zzw==}
+    dev: true
+
   /@types/normalize-package-data@2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
     dev: true
@@ -658,7 +665,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.3.9
+      vite: 4.3.9(@types/node@20.3.3)
       vue: 3.3.4
     dev: true
 
@@ -3028,7 +3035,7 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite@4.3.9:
+  /vite@4.3.9(@types/node@20.3.3):
     resolution: {integrity: sha512-qsTNZjO9NoJNW7KnOrgYwczm0WctJ8m/yqYAMAK9Lxt4SoySUfS5S8ia9K7JHpa3KEeMfyF8LoJ3c5NeBJy6pg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -3053,6 +3060,7 @@ packages:
       terser:
         optional: true
     dependencies:
+      '@types/node': 20.3.3
       esbuild: 0.17.19
       postcss: 8.4.24
       rollup: 3.26.0

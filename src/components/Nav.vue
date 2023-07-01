@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useCartStore } from '../store/cart'
 import Search from './Search.vue'
+import { useCartStore } from '@/store/cart'
 
 const cartStore = useCartStore()
 
